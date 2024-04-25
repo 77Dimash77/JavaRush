@@ -30,6 +30,7 @@ public class Solution {
         Monkey monkey = new Monkey("Simka");
 
         //Add reference here
+        SoftReference<Monkey> reference = new SoftReference<Monkey>(monkey);
 
         helper.callGC();
 

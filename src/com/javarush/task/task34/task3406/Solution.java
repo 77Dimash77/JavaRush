@@ -32,7 +32,7 @@ public class Solution {
         //Add reference here
 
         helper.callGC();
-
+        WeakReference<Monkey> reference = new WeakReference<Monkey>(monkey);
         monkey = null;
 
         helper.callGC();
