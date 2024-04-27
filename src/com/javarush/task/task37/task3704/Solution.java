@@ -1,8 +1,10 @@
 package com.javarush.task.task37.task3704;
 
-import java.util.Map;
-import java.util.TreeMap;
+import org.apache.commons.collections4.bidimap.TreeBidiMap;
+
 import java.util.HashMap;
+import java.util.Map;
+
 
 /* 
 Фикс бага
@@ -50,6 +52,6 @@ text 2
     }
 
     public static Map getExpectedMap() {
-        return new TreeMap();
+        return new HashMap();
     }
 }
