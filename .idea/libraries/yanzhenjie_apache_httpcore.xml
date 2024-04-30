@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="yanzhenjie.apache.httpcore" type="repository">
+    <properties maven-id="com.yanzhenjie.apache:httpcore:4.4.16" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yanzhenjie/apache/httpcore/4.4.16/httpcore-4.4.16.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
