@@ -23,6 +23,16 @@ public class Software {
     }
 
     public boolean rollback(int rollbackVersion) {
+        if (!versionHistoryMap.containsKey(rollbackVersion))
+            return false;
+
+        Iterator<Integer> iterator = versionHistoryMap.keySet().iterator();
+        while (iterator.hasNext())
+            if (iterator.next()>rollbackVersion)
+                iterator.remove();
+
+        currentVersion = rollbackVersion;
+
         return true;
     }
 }

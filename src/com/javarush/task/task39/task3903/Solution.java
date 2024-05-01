@@ -24,6 +24,24 @@ public class Solution {
     }
 
     public static long swapBits(long number, int i, int j) {
+        // Проверяем, что i и j находятся в пределах длины числа
+        if (i < 0 || i >= 64 || j < 0 || j >= 64) {
+            throw new IllegalArgumentException("Invalid bit index");
+        }
+
+        // Получаем значения битов с индексами i и j
+        long bitI = (number >> i) & 1;
+        long bitJ = (number >> j) & 1;
+
+        // Если значения битов различны, меняем их местами
+        if (bitI != bitJ) {
+            long maskI = 1L << i; // Создаем маску для бита с индексом i
+            long maskJ = 1L << j; // Создаем маску для бита с индексом j
+            // Меняем местами биты с помощью операции XOR
+            number ^= (maskI | maskJ);
+        }
+
+        // Возвращаем измененное число
         return number;
     }
 }

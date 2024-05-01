@@ -18,5 +18,7 @@
     <orderEntry type="library" name="google.guava" level="project" />
     <orderEntry type="library" name="junit.vintage.engine" level="project" />
     <orderEntry type="library" name="jsoup" level="project" />
+    <orderEntry type="library" name="yanzhenjie.apache.httpcore" level="project" />
+    <orderEntry type="library" name="apache.httpcomponents.fluent.hc" level="project" />
   </component>
 </module>
