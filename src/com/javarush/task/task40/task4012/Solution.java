@@ -16,17 +16,18 @@ public class Solution {
     }
 
     public static boolean isLeap(LocalDate date) {
-
+        return date.isLeapYear();
     }
 
     public static boolean isBefore(LocalDateTime dateTime) {
-
+        return dateTime.isBefore(dateTime);
     }
 
     public static LocalTime addTime(LocalTime time, int n, ChronoUnit chronoUnit) {
+        return time.plus(n, chronoUnit);
     }
 
     public static Period getPeriodBetween(LocalDate firstDate, LocalDate secondDate) {
-
+        return firstDate.isBefore(secondDate) ? firstDate.until(secondDate) : secondDate.until(firstDate);
     }
 }

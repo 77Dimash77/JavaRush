@@ -14,7 +14,19 @@ public class Solution {
 
     public static String changePath(String path, String jdk) {
         //напишите тут ваш код
-        String a = path.replace("jdk1.8", jdk);
-        return a;
-    }
-}
+        int startIndex = path.indexOf("jdk");
+        if (startIndex == -1) {
+            return path; // Если версия jdk не найдена, возвращаем исходный путь
+        }
+
+        // Находим конец версии jdk
+        int endIndex = path.indexOf("/", startIndex);
+        if (endIndex == -1) {
+            endIndex = path.length(); // Если конец версии jdk не найден, берем конец строки
+        }
+
+        // Формируем новый путь, заменяя версию jdk на новую
+        String prefix = path.substring(0, startIndex); // Часть пути до версии jdk
+        String suffix = path.substring(endIndex); // Часть пути после версии jdk
+        return prefix + jdk + suffix;
+}}

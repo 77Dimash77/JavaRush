@@ -40,20 +40,56 @@ public class Solution {
     static void addUser(User user) {
         System.out.print(INPUT_NAME);
         String name = scanner.nextLine();
+        int setNameResult = user.setName(name);
+        switch (setNameResult) {
+            case -1:
+                System.out.println(CANNOT_BE_NULL);
+                return;
+            case -2:
+                System.out.println(CANNOT_BE_EMPTY);
+                return;
+            case -3:
+                System.out.println(CANNOT_CONTAIN_DIGIT);
+                return;
+            case 0:
+                break;
+            default:
+                System.out.println(UNKNOWN_ERROR);
+                return;
+        }
 
         System.out.printf(INPUT_AGE, name);
-        int age = Integer.parseInt(scanner.nextLine());
-
-        //напишите тут ваш код
-        user.setName(name);
-
-        user.setAge(age);
+        int age;
+        try {
+            age = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println(CANNOT_BE_NEGATIVE);
+            return;
+        }
+        int setAgeResult = user.setAge(age);
+        switch (setAgeResult) {
+            case -1:
+                System.out.println(CANNOT_BE_NEGATIVE);
+                return;
+            case -2:
+                System.out.println(CANNOT_BE_TOO_BIG);
+                return;
+            case 0:
+                break;
+            default:
+                System.out.println(UNKNOWN_ERROR);
+                return;
+        }
 
         users.add(user);
     }
 
     static void findUserIndex(User user) {
-        //напишите тут ваш код
-        System.out.printf(FOUND, user.getName(), users.indexOf(user));
+        int index = users.indexOf(user);
+        if (index != -1) {
+            System.out.printf(FOUND, user.getName(), index);
+        } else {
+            System.out.printf(NOT_FOUND, user.getName());
+        }
     }
 }

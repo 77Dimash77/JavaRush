@@ -1,6 +1,7 @@
 package com.javarush.task.task40.task4003;
 
 import javax.activation.DataHandler;
+import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -55,6 +56,18 @@ public class Solution {
     }
 
     public static void setAttachment(Message message, String filename) throws MessagingException {
-        message.setText(filename);
+        Multipart multipart = new MimeMultipart();
+        BodyPart messageBodyPart = new MimeBodyPart();
+
+        //Set File
+        DataSource source = new FileDataSource(filename);
+        messageBodyPart.setDataHandler(new DataHandler(source));
+        messageBodyPart.setFileName(filename);
+
+        //Add "file part" to multipart
+        multipart.addBodyPart(messageBodyPart);
+
+        //Set multipart to message
+        message.setContent(multipart);
     }
 }

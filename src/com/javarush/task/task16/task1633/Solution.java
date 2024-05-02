@@ -10,7 +10,6 @@ public class Solution {
     public static void main(String[] args) {
         TestedThread commonThread = new TestedThread(handler);
 
-
         Thread threadA = new Thread(commonThread, "Нить 1");
         Thread threadB = new Thread(commonThread, "Нить 2");
 
@@ -21,13 +20,15 @@ public class Solution {
         threadB.interrupt();
     }
 
-    public static class TestedThread extends Thread {
+    public static class TestedThread implements Runnable {
+        private Thread.UncaughtExceptionHandler handler;
+
         public TestedThread(Thread.UncaughtExceptionHandler handler) {
-            setUncaughtExceptionHandler(handler);
-            start();
+            this.handler = handler;
         }
 
         public void run() {
+            Thread.currentThread().setUncaughtExceptionHandler(handler);
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {

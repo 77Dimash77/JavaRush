@@ -20,5 +20,7 @@
     <orderEntry type="library" name="jsoup" level="project" />
     <orderEntry type="library" name="yanzhenjie.apache.httpcore" level="project" />
     <orderEntry type="library" name="apache.httpcomponents.fluent.hc" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="sun.mail.javax" level="project" />
   </component>
 </module>
